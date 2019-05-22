@@ -25,6 +25,7 @@ class CreatePatient {
     private gender = (num:number) => $(`//mat-option[@id="mat-option-${num}"]`);
     private saveButton = () => $('//button[contains(text(),"SAVE")]');
 
+    // ----- Steps -----
 
     setFirstName(name:string) {
         this.firstName().waitForDisplayed();

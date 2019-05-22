@@ -3,6 +3,8 @@ class LoginPage {
   private password = () => $('//input[@id="mat-input-1"]');
   private buttonLogin = () => $('//span[contains(text(),"Login")]');
 
+  // ----- Steps -----
+
   public openBetaUrl() {
       const conf = require('config/Configuration.json');
       const path = conf.betaUrl.url;

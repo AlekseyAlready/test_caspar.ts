@@ -6,6 +6,8 @@ class newAccEntrance {
     private confirmNewPassword = () => $('//input[@id="mat-input-3"]');
     private setPassword = () => $('//span[contains(text(),"Set password")]');
 
+    // ----- Steps -----
+
     clickSignOutButton() {
         this.signOutButton().waitForDisplayed();
         return this.signOutButton().click();

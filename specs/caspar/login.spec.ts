@@ -13,15 +13,17 @@ const stamp = loginPage.getStamp();
 
 
 describe('create patient', () => {
-    before('login', () => {
+    before('login as default user', () => {
         loginPage.openBetaUrl();
         loginPage.setCasparId(id);
         loginPage.setPassword(password);
         loginPage.clickLogin();
     });
   
-    it('Login as new user, check page is opened', () => {
+    it('Create new patient, login as new user, check page is opened', () => {
         managementPage.clickAddPatient();
+
+        // ----- Fill required fields for new user -----
         createNewPatientPage.setDayBirth(2);
         createNewPatientPage.setMonth(34);
         createNewPatientPage.setYear(52);
@@ -40,14 +42,20 @@ describe('create patient', () => {
         createNewPatientPage.setZip(410000);
         createNewPatientPage.setCity('München');
         createNewPatientPage.setCountry(163);
+
+        // ----- Get pass and id -----
         createNewPatientPage.clickSaveButton();
         const newId = managementPage.getNewCasparId().replace('Caspar ID', '');
         const tempPassword = managementPage.getTemporaryPassword().replace('Temporary Password', '');
         managementPage.clickCloseButton();
+
+        // ----- Log out -----
         managementPage.clickInitials();
         managementPage.clickSignOutButton();
         browser.pause(500);
         browser.refresh();
+
+        // ----- Login as new user -----
         loginPage.setCasparId(newId);
         loginPage.setPassword(tempPassword);
         loginPage.clickLogin();

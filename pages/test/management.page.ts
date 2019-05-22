@@ -6,6 +6,8 @@ class managementPage {
     private initials = () => $('//div[@class="initials"]');
     private signOutButton = () => $('//button[contains(text(),"Sign out")]');
 
+    // ----- Steps -----
+
     clickAddPatient() {
         this.addPatient().waitForDisplayed();
         return this.addPatient().click();
