@@ -1,0 +1,18 @@
+Examples of test cases, and pattern for naming, which I used.
+
+what’s an object?
+what’s it’s behavior?
+at what condition?
+
+
+system allows user to authorize with valid credintials
+system does not allow to login as user who tries to use invalid credentials
+system does not allow to login to user who tries to log in with empty credentials
+system opens page to restore user's password if user clicks on this button
+system allows user to click "Login" button only if both fields (emai/caspar id and password) are filled
+system allows user to authorize with valid qr code
+system doesn't allow user to authorize with invalid qr code
+system allows user to see his password if user clicks on eye icon
+system allows user to hide his password if user clicks on strike-through eye icon
+system allows user to switch his language if user clicks on "name of the language" icon
+system erases user's credential if user clicks on f5 or refreshes the page
