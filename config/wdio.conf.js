@@ -111,15 +111,15 @@ exports.config = {
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter.html
   //   reporters: ['spec', 'allure', 'mochawesome'],
-  reporters: [
-    'spec',
-    [
-      'allure',
-      {
-        disableWebdriverStepsReporting: true
-      }
-    ]
-  ],
+  // reporters: [
+  //   'spec',
+  //   [
+  //     'allure',
+  //     {
+  //       disableWebdriverStepsReporting: true
+  //     }
+  //   ]
+  // ],
   //
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/
