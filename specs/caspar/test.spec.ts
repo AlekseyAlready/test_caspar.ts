@@ -27,13 +27,14 @@ describe('Check that t&s and Release of medical information are presented', () =
         createNewPatientPage.setMonth(34);
         createNewPatientPage.setYear(52);
         createNewPatientPage.setGender(0);
-        createNewPatientPage.setFirstName('one');
-        createNewPatientPage.setLastName('one');
+        createNewPatientPage.setFirstName('Aleksei');
+        createNewPatientPage.setLastName('Efimov');
         createNewPatientPage.setHeightCm(170);
         createNewPatientPage.setWeightKg(68);
         createNewPatientPage.setBmi(610);
         createNewPatientPage.setTherapyGoal('Healing');
         createNewPatientPage.setRecommendation('eat ice creame');
+        createNewPatientPage.setOther('and drink cola');
         createNewPatientPage.setEmail(`smartkrio@gmail${stamp}.com`);
         createNewPatientPage.setPrimaryPhone('+43');
         createNewPatientPage.setStreet('Landsberger');
