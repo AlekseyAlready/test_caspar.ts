@@ -4,6 +4,7 @@ import loginPage from 'pages/loginPage.page';
 import createNewPatientPage from 'pages/test/createPatient.page';
 import managementPage from 'pages/test/management.page';
 import newAccEntrance from 'pages/test/newAccEntrance.page';
+import newPatient from 'pages/test/newPatient.page';
 
 
 const id = 'IXE0865';
@@ -12,15 +13,13 @@ const newPassword = 'anypassword';
 const stamp = loginPage.getStamp();
 
 
-describe('create patient', () => {
-    before('login as default user', () => {
+describe('Check that t&s and Release of medical information are presented', () => {
+    before('Create new patient', () => {
         loginPage.openBetaUrl();
         loginPage.setCasparId(id);
         loginPage.setPassword(password);
         loginPage.clickLogin();
-    });
-  
-    it('Create new patient, login as new user, check page is opened', () => {
+
         managementPage.clickAddPatient();
 
         // ----- Fill required fields for new user -----
@@ -42,9 +41,12 @@ describe('create patient', () => {
         createNewPatientPage.setZip(410000);
         createNewPatientPage.setCity('München');
         createNewPatientPage.setCountry(163);
+        createNewPatientPage.clickSaveButton();
+    });
+  
+    it('Login as new user, check t&s and Release of medical information are presented', () => {
 
         // ----- Get pass and id -----
-        createNewPatientPage.clickSaveButton();
         const newId = managementPage.getNewCasparId().replace('Caspar ID', '');
         const tempPassword = managementPage.getTemporaryPassword().replace('Temporary Password', '');
         managementPage.clickCloseButton();
@@ -64,6 +66,16 @@ describe('create patient', () => {
         newAccEntrance.fillNewPassword(newPassword);
         newAccEntrance.fillConfirmNewPassword(newPassword);
         newAccEntrance.setNewPassword();
-        browser.pause(5000);
+        newPatient.openProfileTab();
+        
+        expect(newPatient.releaseMedInfoIsExisting()).to.be.true;
+        expect(newPatient.termOfUseIsExisting()).to.be.true;
+
+        newPatient.openReleaseMedInfo();
+        expect(newPatient.getHeadReleaseMedInfo()).to.be.equal('Release of medical information');
+
+        newPatient.clickCloseButton();
+        newPatient.openTermOfUse();
+        expect(newPatient.getHeadTermOfUse()).to.be.equal('Term of use');
       });
 });

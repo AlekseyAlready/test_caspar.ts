@@ -14,11 +14,13 @@ class NewPatient {
     }
 
     termOfUseIsExisting() {
-        return this.termOfUse().waitForDisplayed();
+        this.termOfUse().waitForDisplayed();
+        return this.termOfUse().isExisting();
     }
 
     releaseMedInfoIsExisting() {
-        return this.releaseMedInfo().waitForDisplayed();
+        this.releaseMedInfo().waitForDisplayed();
+        return this.releaseMedInfo().isExisting();
     }
 
     openTermOfUse() {
@@ -29,8 +31,9 @@ class NewPatient {
         return this.releaseMedInfo().click();
     }
 
-    headTermOfUseIsExisting() {
+    getHeadTermOfUse() {
         this.headTermOfUse().waitForDisplayed();
+        return this.headTermOfUse().getText();
 
     }
 
@@ -39,9 +42,9 @@ class NewPatient {
         return this.closeButton().click();
     }
 
-    headReleaseMedInfoIsExisting() {
+    getHeadReleaseMedInfo() {
         this.headReleaseMedInfo().waitForDisplayed();
-
+        return this.headReleaseMedInfo().getText();
     }
 
   }
