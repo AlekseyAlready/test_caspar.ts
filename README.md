@@ -1,4 +1,4 @@
-# UI tests for Analitycs
+# UI tests for Caspar
 
 ```
  npm install
