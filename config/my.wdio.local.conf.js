@@ -5,7 +5,7 @@ exports.config = Object.assign(wdioConf.config, {
   hostname: 'localhost',
   //port: 4444,
   services: ['selenium-standalone'],
-  specs: ['./specs/caspar/login.spec.ts'],
+  specs: ['./specs/caspar/test.spec.ts'],
   capabilities: [
     {
       browserName: 'chrome',
