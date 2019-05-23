@@ -67,7 +67,7 @@ describe('Check that t&s and Release of medical information are presented', () =
         newAccEntrance.fillConfirmNewPassword(newPassword);
         newAccEntrance.setNewPassword();
         newPatient.openProfileTab();
-        
+
         expect(newPatient.releaseMedInfoIsExisting()).to.be.true;
         expect(newPatient.termOfUseIsExisting()).to.be.true;
 
@@ -76,6 +76,6 @@ describe('Check that t&s and Release of medical information are presented', () =
 
         newPatient.clickCloseButton();
         newPatient.openTermOfUse();
-        expect(newPatient.getHeadTermOfUse()).to.be.equal('Term of use');
+        expect(newPatient.getHeadTermOfUse()).to.be.equal('Terms of use');
       });
 });
